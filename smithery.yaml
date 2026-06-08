@@ -1,0 +1,3 @@
+startCommand:
+  type: url
+  url: https://orbisapi.com/api/mcp/crypto
