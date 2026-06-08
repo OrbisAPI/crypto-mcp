@@ -108,3 +108,57 @@ See `example.mjs` for a full working script.
 ---
 
 Built by [Orbis](https://orbisapi.com) — the API marketplace for AI agents.
+
+## Connect
+
+### Claude Desktop
+
+Add to your `claude_desktop_config.json`:
+
+```json
+{
+  "mcpServers": {
+    "orbis-crypto": { "url": "https://orbisapi.com/api/mcp/crypto" }
+  }
+}
+```
+
+### OpenAI Agents SDK
+
+**Python:**
+```python
+from agents.mcp import MCPServerStreamableHttp
+from agents import Agent, Runner
+
+mcp = MCPServerStreamableHttp(url="https://orbisapi.com/api/mcp/crypto")
+
+agent = Agent(
+    name="Orbis Crypto Agent",
+    model="gpt-4o",
+    mcp_servers=[mcp]
+)
+
+result = await Runner.run(agent, "Browse available crypto APIs")
+print(result.final_output)
+```
+
+**TypeScript:**
+```typescript
+import { Agent, run } from "@openai/agents";
+import { MCPServerStreamableHttp } from "@openai/agents/mcp";
+
+const mcp = new MCPServerStreamableHttp({
+  url: "https://orbisapi.com/api/mcp/crypto",
+});
+
+const agent = new Agent({
+  name: "Orbis Crypto Agent",
+  model: "gpt-4o",
+  mcpServers: [mcp],
+});
+
+const result = await run(agent, "Browse available crypto APIs");
+console.log(result.finalOutput);
+```
+
+> Calls are billed per-use in USDC via [x402](https://x402.org) on Base mainnet. No subscription, no API key required.
