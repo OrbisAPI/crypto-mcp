@@ -1,0 +1,16 @@
+{
+  "name": "@orbisapi/crypto-mcp",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "500+ crypto & blockchain APIs for AI agents. Pay per call with USDC on Base via x402.",
+  "scripts": {
+    "start": "node example.mjs"
+  },
+  "dependencies": {
+    "viem": "^2.0.0",
+    "x402-fetch": "^0.1.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
